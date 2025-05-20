@@ -6,7 +6,7 @@ import io.restassured.builder.ResponseSpecBuilder;
 import io.restassured.filter.log.LogDetail;
 import org.junit.jupiter.api.BeforeAll;
 
-public class BookStoreTestBase {
+public class BooksStoreTestBase {
     @BeforeAll
     public static void setUp() {
         RestAssured.baseURI = "https://demoqa.com";

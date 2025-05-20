@@ -1,6 +1,6 @@
 package api.tests;
 
-import api.models.BookResponse;
+import api.models.BooksResponse;
 import io.restassured.http.ContentType;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
@@ -11,22 +11,22 @@ import static org.hamcrest.Matchers.not;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 
-public class SimpleBookTests extends BookStoreTestBase {
+public class SimpleBooksTests extends BooksStoreTestBase {
 
     @Test
     @DisplayName("Проверка книги с использованием маппера")
     void getFirstBook() {
-        BookResponse response = given()
+        BooksResponse response = given()
                 .when()
                 .get("/Books")
                 .then()
                 .statusCode(200)
                 .contentType(ContentType.JSON)
                 .extract()
-                .as(BookResponse.class);
+                .as(BooksResponse.class);
 
         assertFalse(response.books.isEmpty());
-        assertEquals("Git Pocket Guide", response.books.get(0).title);
+        assertEquals("Git Pocket Guide", response.books.get(0).getTitle());
     }
 
     @Test
